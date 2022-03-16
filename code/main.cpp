@@ -1,14 +1,19 @@
 #include <iostream>
 
-#include "CicleList.hpp"
+#include "Reciver.hpp"
 
 int main()
 {
-    auto cList = CicleList::createCicleList<int>(5);
-    CicleList::addCicleNode(cList, 6);
-    CicleList::addCicleNode(cList, 7);
-    CicleList::addCicleNode(cList, 8);
-    CicleList::printCicleList(cList);
-    CicleList::deleteCicleList(cList);
+    Reciver rev;
+    Data d1 = {0, "Ala"};
+    Data d2 = {1, " ma "};
+    Data d3 = {2, "kota"};
+
+    rev.getData(d3);
+    rev.getData(d1);
+    rev.getData(d2);
+
+    rev.printMessage();
+
     return 0;
 }
