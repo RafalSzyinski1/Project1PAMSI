@@ -1,13 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 project(PAMSI)
 
-set(CODE_DIR ${CMAKE_SOURCE_DIR}/code)
+set(APP_DIR ${CMAKE_SOURCE_DIR}/app)
+set(CODE_DIR ${APP_DIR}/code)
 
-file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true ${CODE_DIR}/*.cpp)
-include_directories(${CODE_DIR})
+file(GLOB_RECURSE SOURCES ${CODE_DIR}/*.cpp)
 
-add_subdirectory(lib/googletest)
-add_subdirectory(test)
-
-add_executable(${PROJECT_NAME} ${SOURCES})
-add_library(PROJECT_LIB STATIC ${SOURCES})
+add_executable(${PROJECT_NAME} ${APP_DIR}/main.cpp)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CODE_DIR})
